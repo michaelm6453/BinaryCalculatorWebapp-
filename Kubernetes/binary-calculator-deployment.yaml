@@ -3,17 +3,18 @@ kind: Deployment
 metadata:
   name: binary-calculator-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: binary-calculator
+      app: BinaryCalculatorWebapp
   template:
     metadata:
       labels:
-        app: binary-calculator
+        app: BinaryCalculatorWebapp
     spec:
       containers:
-        - name: binary-calculator
-          image: gcr.io/complete-aviary-452402-m3/binary-calculator:latest
-          ports:
-            - containerPort: 8080
+      - image: northamerica-northeast2-docker.pkg.dev/complete-aviary-452402-m3/sofe3980u/binwebappv2
+        name: binwebappv2
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
